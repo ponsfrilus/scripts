@@ -32,8 +32,33 @@ menu2() {
         echo "Read https://github.com/robbyrussell/oh-my-zsh#readme";
         echo "installing oh my zsh";
         wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
- }
+	echo "You can change you default shell in "
+	echo "https://dinfo.epfl.ch/cgi-bin/accountprefs"
+}
 
+# Menu 3 : Internet
+menu3(){
+	sudo apt-get install chromium-browser	
+}
+
+# Menu 4: Multimedia
+menu4(){
+	echo "multimedia stuff";
+	sudo apt-get install vlc ffmpeg mplayer 
+}
+
+# Menu 7 : Multi screen
+menu7(){
+	## http://www.webupd8.org/2012/11/how-to-use-multiple-monitors-in-xubuntu.html
+	## Make the Multiscreen available + Thunar Tabs
+	sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
+	sudo apt-get update
+	sudo apt-get upgrade
+	echo "Now run the following command to configure your displays:"
+	echo "xfce4-display-settings -m"
+	echo "And run the fillowing command to restart Thunar and have tabs support:"
+	echo "thunar -q"
+}
 
 
 
@@ -89,17 +114,19 @@ show_title
 show_menu
 
 # Menu 1 : Dev Tools
-menu1() { sudo apt-get install -y gedit vim git markdown; }
+#menu1() { sudo apt-get install -y gedit vim git markdown; }
 # Menu 2 : Geek Stuff
-menu2() { 
-	echo "installing ZSH";
-	sudo apt-get install zsh
-	echo "change the default shell (answer /bin/zsh)";
-	chsh
-	echo "Read https://github.com/robbyrussell/oh-my-zsh#readme";
-	echo "installing oh my zsh";
-	wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
- }
+#menu2() { 
+#	echo "installing ZSH";
+#	sudo apt-get install zsh
+#	echo "change the default shell (answer /bin/zsh)";
+#	chsh
+#	echo "Read https://github.com/robbyrussell/oh-my-zsh#readme";
+#	echo "installing oh my zsh";
+#	wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+#	echo "installing openssh-server"
+#	sudo apt-get install openssh-server
+# }
 
 exit 0
 #options=("Dev-Tools" "Geek Stuff" "Internet" "Multimedia" "Drawing" "Confort" "Multi-Screen" "Optimization")
