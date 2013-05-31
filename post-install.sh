@@ -37,19 +37,32 @@ menu1() {
 	sudo add-apt-repository ppa:webupd8team/sublime-text-2
 	sudo apt-get update
 	sudo apt-get install sublime-text
+
+	## Not really dev tools but to mount smb share in fstab
+	## Read http://askubuntu.com/questions/157128/proper-fstab-entry-to-mount-a-samba-share-on-boot
+	## https://wiki.ubuntu.com/MountWindowsSharesPermanently
+	sudo apt-get -y cifs-utils
+	echo "~/.smbcredentials should contains
+	username=shareuser
+	password=sharepassword
+	domain=domain_or_workgroupname
+	";
+	echo "Then chmod 0600 ~/.smbcredentials";
  }
 # Menu 2 : Geek Stuff
 menu2() {
         echo "installing ZSH";
         sudo apt-get install zsh
         echo "change the default shell (answer /bin/zsh)";
-        chsh
+	sh -s /bin/zsh 
         echo "Read https://github.com/robbyrussell/oh-my-zsh#readme";
         echo "installing oh my zsh";
         wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
 	echo "In EPFL, you can change you default shell in "
 	echo "https://dinfo.epfl.ch/cgi-bin/accountprefs"
 	sudo apt-get install openssh-server
+	# http://dinozaur1982.deviantart.com/art/conky2-316541287
+	sudo apt-get install conky -y
 }
 
 # Menu 3 : Internet
@@ -61,6 +74,11 @@ menu3(){
 menu4(){
 	echo "multimedia stuff";
 	sudo apt-get install vlc ffmpeg mplayer dvdrip
+	# Spotify
+	sudo sh -c 'echo "deb http://repository.spotify.com stable non-free" >> /etc/apt/sources.list'
+	sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
+	sudo apt-get update
+	sudo apt-get install spotify-client
 ## sudo /usr/share/doc/libdvdread4/install-css.sh
 }
 
