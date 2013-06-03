@@ -43,12 +43,24 @@ menu1() {
 	## https://wiki.ubuntu.com/MountWindowsSharesPermanently
 	sudo apt-get -y cifs-utils
 	echo "~/.smbcredentials should contains
-	username=shareuser
-	password=sharepassword
-	domain=domain_or_workgroupname
+	username=YourUsername
+	password=YourPassword
+	domain=YourDomain
 	";
 	echo "Then chmod 0600 ~/.smbcredentials";
- }
+	echo "Try with:
+		sudo mkdir /mnt/LENINAS
+		sudo mount -t cifs //stisrv.epfl.ch/igm/leni/ /mnt/LENINAS -o username=YourUsername,domain=STI"
+	echo "Then, you can permanently add it to /etc/fstab"
+        echo "~/.smbcredentials should contains
+        username=YourUsername
+        password=YourPassword
+        domain=YourDomain
+        ";
+        echo "Then chmod 0600 ~/.smbcredentials"; 
+	echo "//server/share /pathto/mountpoint cifs credentials=/home/username/.smbcredentials,uid=shareuser,gid=sharegroup 0 0"
+
+}
 # Menu 2 : Geek Stuff
 menu2() {
         echo "installing ZSH";
