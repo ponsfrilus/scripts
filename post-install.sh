@@ -61,6 +61,8 @@ menu1() {
         echo "Then chmod 0600 ~/.smbcredentials"; 
 	echo "//server/share /pathto/mountpoint cifs credentials=/home/username/.smbcredentials,uid=shareuser,gid=sharegroup 0 0"
 	sudo apt-get install rdesktop
+	# Android
+	sudo apt-get install android-tools-fastboot && sudo apt-get install android-tools-adb
 # sudo apt-get install xrdp
 
 ## Git migration (https://github.com/nirvdrum/svn2git)
