@@ -33,21 +33,22 @@ show_title() {
 # Menu 1 : Dev Tools
 menu1() { 
 	sudo apt-get install -y gedit vim git markdown;
+	export EDITOR=/usr/bin/vim
 	echo "installation of Sublime Text";
 	sudo add-apt-repository ppa:webupd8team/sublime-text-2
 	sudo apt-get update
 	sudo apt-get install sublime-text
+	sudo apt-get install meld
+	sudo apt-get install mysql-workbench
+	sudo apt-get install apache2 php5 mysql-server php5-mysql php5-curl php5-ldap
+	echo "sudo a2enmod rewrite ldap"
+	sudo service apache2 restart
+	#sudo a2enmod 
 
 	## Not really dev tools but to mount smb share in fstab
 	## Read http://askubuntu.com/questions/157128/proper-fstab-entry-to-mount-a-samba-share-on-boot
 	## https://wiki.ubuntu.com/MountWindowsSharesPermanently
-	sudo apt-get -y cifs-utils
-	echo "~/.smbcredentials should contains
-	username=YourUsername
-	password=YourPassword
-	domain=YourDomain
-	";
-	echo "Then chmod 0600 ~/.smbcredentials";
+	sudo apt-get install -y cifs-utils
 	echo "Try with:
 		sudo mkdir /mnt/LENINAS
 		sudo mount -t cifs //stisrv.epfl.ch/igm/leni/ /mnt/LENINAS -o username=YourUsername,domain=STI"
@@ -59,7 +60,12 @@ menu1() {
         ";
         echo "Then chmod 0600 ~/.smbcredentials"; 
 	echo "//server/share /pathto/mountpoint cifs credentials=/home/username/.smbcredentials,uid=shareuser,gid=sharegroup 0 0"
+	sudo apt-get install rdesktop
+# sudo apt-get install xrdp
 
+## Git migration (https://github.com/nirvdrum/svn2git)
+#sudo apt-get install git-core git-svn ruby rubygems
+#sudo gem install svn2git
 }
 # Menu 2 : Geek Stuff
 menu2() {
@@ -74,12 +80,18 @@ menu2() {
 	echo "https://dinfo.epfl.ch/cgi-bin/accountprefs"
 	sudo apt-get install openssh-server
 	# http://dinozaur1982.deviantart.com/art/conky2-316541287
-	sudo apt-get install conky -y
+	sudo apt-get install conky
+
+
 }
 
-# Menu 3 : Internet
+# Menu 3 : Internet / Desktop
 menu3(){
+	sudo apt-get install libreoffice
 	sudo apt-get install chromium-browser	
+	#sudo apt-get install dropbox
+	#Install KeepNote.org
+	#Intall markdown GUI / Gummy
 }
 
 # Menu 4: Multimedia
@@ -97,7 +109,7 @@ menu4(){
 # Menu 5: Drawing
 menu5(){
 	echo "Drawing stuff";
-	sudo apt-get install inkscape gimp gthumb pinta 
+	sudo apt-get install inkscape gimp gthumb pinta gpicks
 }
 
 # Menu 6: Confort
@@ -142,7 +154,7 @@ show_menu() {
 
 	##read opt
 	##	  $1		$2		$3		$4		$5		$6		$7		$8
-	options=("Dev-Tools"	"Geek Stuff"	"Internet"	"Multimedia"	"Drawing"	"Confort"	"Multi-Screen"	"Optimization")
+	options=("Dev-Tools"	"Geek Stuff"	"Desktop / Internet"	"Multimedia"	"Drawing"	"Confort"	"Multi-Screen"	"Optimization")
 	echo "Please select your objectives : "
 	PS3="Pick an option (press enter to see choices): "
 	select opt in "${options[@]}" "All" "Quit (or q)"; do 
@@ -171,7 +183,7 @@ show_menu() {
                                         done
                                 ;;
 
-			3 )	echo "$opt: will install chromium browser"
+			3 )	echo "$opt: will install libreoffice & chromium browser"
                                 while true
                                         do
                                                 read -r -p 'Internet option will install chromium. Would you to continue [y/n] ? ' choice
