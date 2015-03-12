@@ -4,7 +4,7 @@
 # author          :nbo
 # email           :nicolas.borboen@epfl.ch
 # date            :2015-02-23
-# version         :0.3
+# version         :0.4
 # usage           :./my_screen.sh -h
 # note            :Install xrandr to use this script
 # ==============================================================================
