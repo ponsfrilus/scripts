@@ -85,8 +85,13 @@ benq() {
 
 # set luminosity max
 luminosity() {
-    sudo -s
-    echo 4000 > /sys/class/backlight/intel_backlight/brightness
+    if [[ $EUID -ne 0 ]]; then
+        echo "/!\ This script must be run as root /!\\" 1>&2
+        exit 1
+    else 
+        sudo echo 4000 > /sys/class/backlight/intel_backlight/brightness
+    fi
+    #sudo echo 4000 > /sys/class/backlight/intel_backlight/brightness
 }
 
 # menu cases
