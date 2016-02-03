@@ -1,0 +1,15 @@
+/home/nborboen/.bash_aliases
+/home/nborboen/.bash_history
+/home/nborboen/.bashrc
+/home/nborboen/.zshrc
+/home/nborboen/.face
+/home/nborboen/.smbcredentials
+/home/nborboen/.vimrc
+/home/nborboen/.zsh_history
+/etc/fstab
+/etc/hosts
+/etc/php5/apache2/php.ini
+/home/nborboen/.ssh
+/etc/apache2/sites-available/
+/etc/ssmtp/
+/etc/php5/mods-available/
