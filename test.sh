@@ -5,7 +5,7 @@
 set -e -x
 
 : ${MySQLUSER:="root"}
-: ${MySQPASSWORD:="nrj+2020"}
+: ${MySQPASSWORD:="helloMySQL"}
 : ${MySQOUTPUT:="/home/nborboen/Documents/MySQLdumps"}
 
 echo $MySQLUSER
