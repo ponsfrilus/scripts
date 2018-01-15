@@ -1,7 +1,8 @@
 #!/bin/bash
+
 repos=(ws tequila accred newsletter persons)
 CWD="$(pwd)"
-echo "Current EPFL plugins direcotry is: $CWD"
+echo "Current EPFL plugins directory is: $CWD"
 read -r -p "Are you sure? [Y/n]" response
 response=${response,,}
 if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
