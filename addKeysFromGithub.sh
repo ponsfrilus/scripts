@@ -1,4 +1,5 @@
 #!/bin/sh
+# Usage: curl -s -L https://raw.githubusercontent.com/ponsfrilus/scripts/master/addKeysFromGithub.sh | bash -s ponsfrilus domq loichu
 
 USAGE="--> Usage: sh $0 ghuser1 ghuser2 ghuser3 ..."
 
