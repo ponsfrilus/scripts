@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# Usage example: bash <(curl -s https://raw.githubusercontent.com/ponsfrilus/scripts/master/epfl-plugins.sh)
 repos=(ws tequila accred newsletter persons)
 CWD="$(pwd)"
 echo "Current EPFL plugins directory is: $CWD"
